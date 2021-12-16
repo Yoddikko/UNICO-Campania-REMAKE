@@ -12,24 +12,7 @@ struct TicketView: View {
     var passOrTicket = ["Pass", "Ticket"]
     var body: some View {
         VStack {
-            ZStack {
-                if #available(iOS 15.0, *) {
-                    LinearGradient(gradient: Gradient(colors: [.blue, .cyan]), startPoint: .top, endPoint: .bottom)
-                        .frame(width: 500, height: 200, alignment: .top)
-                        .ignoresSafeArea()
-                } else {
-                    // Fallback on earlier versions
-                }
-                VStack {
-                    Text("Tickets and pass")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.white)
-                        .padding(.top, 50)
-                        .padding(.trailing, 110)
-                }
-                
-            }
+            topTicketAndPassView()
             HStack {
                 Picker("", selection: $passOrTicketPick) {
                     ForEach(passOrTicket, id: \.self) {
@@ -42,6 +25,8 @@ struct TicketView: View {
             Spacer()
             if passOrTicketPick == "Pass" {
                 passView()
+                Spacer()
+                buttonView(text: "Buy pass")
             }
             if passOrTicketPick == "Ticket" {
                 VStack {
@@ -49,9 +34,9 @@ struct TicketView: View {
                     Text("No tickets")
                         .foregroundColor(.secondary)
                     Spacer()
+                    buttonView(text: "Buy ticket")
                 }
             }
-            
         }
     }
 }
