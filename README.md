@@ -1,3 +1,5 @@
+A PROJECT MADE FOR THE APPLE DEVELPOER ACADEMY 💻
+
 # UNICO-Campania-REMAKE
 A redesigned prototype for the UNICO Campania App
 
